@@ -676,43 +676,41 @@
     </div>
 
     <script>
-        // Enhanced Pandal data with coordinates
+        // Accurate Pandal data with correct coordinates
         const pandals = [
-            // North Kolkata
-            { name: "Bagbazar Sarbojanin", zone: "north", description: "Traditional heritage pandal", lat: 22.5958, lng: 88.3639 },
-            { name: "Kumartuli Park & Kumartuli Sarbojanin", zone: "north", description: "Famous artisan community pandal", lat: 22.5944, lng: 88.3565 },
-            { name: "College Square", zone: "north", description: "Historic educational hub celebration", lat: 22.5756, lng: 88.3683 },
-            { name: "Hatibagan Sarbojanin", zone: "north", description: "Traditional neighborhood celebration", lat: 22.5892, lng: 88.3734 },
-            { name: "Ahiritola Sarbojanin", zone: "north", description: "Heritage-rich riverside pandal", lat: 22.5989, lng: 88.3456 },
-            { name: "Nalin Sarkar Street Sarbojanin", zone: "north", description: "Community celebration", lat: 22.5934, lng: 88.3612 },
-            { name: "Sovabazar Rajbari", zone: "north", description: "Royal heritage pandal with rich history", lat: 22.5945, lng: 88.3598 },
-            { name: "Pathuriaghata Khelat Ghosh Puja", zone: "north", description: "Historic family puja", lat: 22.5956, lng: 88.3634 },
-            { name: "Tala Barowari Durgotsab", zone: "north", description: "Community festival", lat: 22.6123, lng: 88.3756 },
-            { name: "Santosh Mitra Square", zone: "north", description: "Near Sealdah station hub", lat: 22.5756, lng: 88.3756 },
-            { name: "Maniktala Chaltabagan Lohapatty", zone: "north", description: "Local community puja", lat: 22.5823, lng: 88.3756 },
-            { name: "Sealdah Railway Athletic Club", zone: "north", description: "Railway community celebration", lat: 22.5756, lng: 88.3723 },
+            // North Kolkata - Corrected coordinates
+            { name: "Bagbazar Sarbojanin", zone: "north", description: "Traditional heritage pandal near Bagbazar Launch Ghat", lat: 22.6035, lng: 88.3691, address: "Bagbazar Ghat Street, North Kolkata" },
+            { name: "Kumartuli Park Sarbojanin", zone: "north", description: "Famous artisan community pandal in Hatkhola", lat: 22.5981, lng: 88.3612, address: "8B Abhay Mitra St, Sovabazar, Kumartuli" },
+            { name: "College Square", zone: "north", description: "Historic educational hub celebration", lat: 22.5737, lng: 88.3639, address: "Chittaranjan Ave, College Square, Kolkata" },
+            { name: "Hatibagan Sarbojanin", zone: "north", description: "Traditional neighborhood celebration since 1934", lat: 22.5856, lng: 88.3701, address: "Hatibagan, North Kolkata" },
+            { name: "Ahiritola Sarbojanin", zone: "north", description: "Heritage-rich riverside pandal", lat: 22.6089, lng: 88.3534, address: "Ahiritola Ghat Street, North Kolkata" },
+            { name: "Sovabazar Rajbari", zone: "north", description: "Royal heritage pandal with 200+ years history", lat: 22.5967, lng: 88.3623, address: "Sovabazar Rajbari, Kumartuli, Kolkata" },
+            { name: "Pathuriaghata Street", zone: "north", description: "Historic bonedi bari puja", lat: 22.5978, lng: 88.3645, address: "Pathuriaghata Street, North Kolkata" },
+            { name: "Tala Barowari", zone: "north", description: "Community festival in Tala", lat: 22.6112, lng: 88.3789, address: "Tala, North Kolkata" },
+            { name: "Santosh Mitra Square", zone: "north", description: "Near Sealdah station, popular pandal", lat: 22.5756, lng: 88.3742, address: "Santosh Mitra Square, Sealdah" },
+            { name: "Maniktala Chaltabagan", zone: "north", description: "Local community puja", lat: 22.5834, lng: 88.3734, address: "Maniktala, Chaltabagan, North Kolkata" },
+            { name: "Mohammad Ali Park", zone: "central", description: "Historic central Kolkata pandal", lat: 22.5689, lng: 88.3578, address: "Mohammad Ali Park, Central Kolkata" },
 
-            // South Kolkata
-            { name: "Ekdalia Evergreen Club", zone: "south", description: "Big-budget creative themed pandal", lat: 22.5123, lng: 88.3556 },
-            { name: "Deshapriya Park", zone: "south", description: "Famous for innovative themes", lat: 22.5234, lng: 88.3567 },
-            { name: "Tridhara Sammilani", zone: "south", description: "Glamorous star-studded celebration", lat: 22.5345, lng: 88.3578 },
-            { name: "Chetla Agrani Club", zone: "south", description: "Creative artistic themes", lat: 22.5098, lng: 88.3445 },
-            { name: "Ballygunge Cultural Association", zone: "south", description: "Cultural hub and community center", lat: 22.5267, lng: 88.3623 },
-            { name: "Jodhpur Park", zone: "south", description: "Popular residential area pandal", lat: 22.4998, lng: 88.3567 },
-            { name: "Badamtala Ashar Sangha", zone: "south", description: "Community celebration", lat: 22.5156, lng: 88.3534 },
-            { name: "Suruchi Sangha", zone: "south", description: "Artistic and cultural pandal", lat: 22.5289, lng: 88.3634 },
-            { name: "Bhowanipore 75 Palli", zone: "south", description: "Historic neighborhood puja", lat: 22.5298, lng: 88.3445 },
-            { name: "Singhi Park", zone: "south", description: "Park-based family celebration", lat: 22.5234, lng: 88.3589 },
-            { name: "Mudiali Club", zone: "south", description: "Club-based community puja", lat: 22.5145, lng: 88.3456 },
-            { name: "Rajdanga Naba Uday Sangha", zone: "south", description: "Modern themed pandal", lat: 22.4889, lng: 88.3978 },
-            { name: "95 Palli", zone: "south", description: "Near Ballygunge area", lat: 22.5234, lng: 88.3612 },
+            // South Kolkata - Corrected coordinates  
+            { name: "Ekdalia Evergreen Club", zone: "south", description: "Famous for temple replicas and big-budget themes", lat: 22.5167, lng: 88.3611, address: "15 Ekdalia Road, Ballygunge, Kolkata 700019" },
+            { name: "Deshapriya Park", zone: "south", description: "Innovative themes and star attractions", lat: 22.5234, lng: 88.3567, address: "Deshapriya Park, Rashbehari, South Kolkata" },
+            { name: "Tridhara Sammilani", zone: "south", description: "Glamorous celebration with celebrity visits", lat: 22.5312, lng: 88.3623, address: "Tridhara, Ballygunge, South Kolkata" },
+            { name: "Chetla Agrani Club", zone: "south", description: "Creative artistic themes", lat: 22.5089, lng: 88.3445, address: "Chetla, South Kolkata" },
+            { name: "Ballygunge Cultural Association", zone: "south", description: "Cultural hub with traditional celebrations", lat: 22.5289, lng: 88.3634, address: "Ballygunge, South Kolkata" },
+            { name: "Jodhpur Park", zone: "south", description: "Popular residential area pandal", lat: 22.4998, lng: 88.3545, address: "Jodhpur Park, South Kolkata" },
+            { name: "Badamtala Ashar Sangha", zone: "south", description: "Community celebration in Kalighat area", lat: 22.5178, lng: 88.3467, address: "Badamtala, Kalighat, South Kolkata" },
+            { name: "Suruchi Sangha", zone: "south", description: "Artistic and cultural pandal", lat: 22.5312, lng: 88.3656, address: "New Alipore, South Kolkata" },
+            { name: "75 Palli (Bhowanipore)", zone: "south", description: "Historic neighborhood puja", lat: 22.5223, lng: 88.3445, address: "75 Palli, Bhowanipore, South Kolkata" },
+            { name: "Singhi Park", zone: "south", description: "Park-based family celebration", lat: 22.5267, lng: 88.3589, address: "Singhi Park, South Kolkata" },
+            { name: "Mudiali Club", zone: "south", description: "Club-based community puja", lat: 22.5145, lng: 88.3456, address: "Mudiali, South Kolkata" },
+            { name: "95 Palli", zone: "south", description: "Popular Ballygunge area pandal", lat: 22.5245, lng: 88.3601, address: "95 Palli, Ballygunge, South Kolkata" },
 
-            // East Kolkata
-            { name: "Sreebhumi Sporting Club", zone: "east", description: "Lake Town - iconic grand themes", lat: 22.5734, lng: 88.4234 },
-            { name: "Lake Town Adhibasi Brinda", zone: "east", description: "Lake Town community celebration", lat: 22.5745, lng: 88.4198 },
-            { name: "Dum Dum Park Tarun Sangha", zone: "east", description: "Youth organization puja", lat: 22.6234, lng: 88.4123 },
-            { name: "Dum Dum Park Bharat Chakra", zone: "east", description: "Community celebration", lat: 22.6245, lng: 88.4156 },
-            { name: "Telengabagan Sarbojanin", zone: "east", description: "Local community", lat: 22.5923, lng: 88.4067 },
+            // East Kolkata - Corrected coordinates
+            { name: "Sreebhumi Sporting Club", zone: "east", description: "Lake Town's most iconic grand themed pandal", lat: 22.5756, lng: 88.4234, address: "Lake Town, Block A, East Kolkata" },
+            { name: "Lake Town Adhibasi Brinda", zone: "east", description: "Lake Town community celebration", lat: 22.5734, lng: 88.4198, address: "Lake Town, East Kolkata" },
+            { name: "Dum Dum Park Tarun Sangha", zone: "east", description: "Youth organization puja", lat: 22.6256, lng: 88.4134, address: "Dum Dum Park, East Kolkata" },
+            { name: "Dum Dum Park Bharat Chakra", zone: "east", description: "Community celebration", lat: 22.6234, lng: 88.4156, address: "Dum Dum Park, East Kolkata" },
+            { name: "Telengabagan Sarbojanin", zone: "east", description: "Impactful cultural themes", lat: 22.5923, lng: 88.4023, address: "Telengabagan, East Kolkata" },
             { name: "Kankurgachi Yubak Brinda", zone: "east", description: "Youth group puja", lat: 22.5845, lng: 88.4089 },
             { name: "Ultadanga Pally Puja", zone: "east", description: "Neighborhood celebration", lat: 22.5923, lng: 88.3945 },
             { name: "Salt Lake FD Block Puja", zone: "east", description: "Salt Lake sector celebration", lat: 22.5734, lng: 88.4345 },
