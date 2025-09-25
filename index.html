@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Durga Puja Pandal Finder - Kolkata</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --durga-red: #DC143C;
+            --durga-orange: #FF6B35;
+            --durga-yellow: #F7931E;
+            --durga-gold: #FFD700;
+            --durga-maroon: #800020;
+            --durga-saffron: #FF9933;
+            --durga-vermillion: #E34234;
+            --durga-deep-red: #B22222;
+            --durga-ivory: #FFFFF0;
+            --durga-cream: #F5F5DC;
+            --text-dark: #2C1810;
+            --text-light: #4A4A4A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--durga-deep-red) 0%, var(--durga-maroon) 50%, var(--durga-red) 100%);
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="lotus" patternUnits="userSpaceOnUse" width="50" height="50"><circle cx="25" cy="25" r="2" fill="rgba(255,215,0,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23lotus)"/></svg>') repeat;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            padding: 1rem 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1.5rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            color: var(--durga-ivory);
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-weight: 700;
+            font-family: 'Cinzel', serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo i {
+            color: var(--durga-gold);
+            font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+        }
+
+        .location-info {
+            background: linear-gradient(135deg, var(--durga-saffron), var(--durga-orange));
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            color: white;
+            font-size: clamp(0.85rem, 2.5vw, 1rem);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            min-width: 0;
+            flex-shrink: 1;
+        }
+
+        .location-info i {
+            color: var(--durga-ivory);
+            animation: pulse 2s infinite;
+            flex-shrink: 0;
+        }
+
+        .location-info span {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 6px;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: clamp(12px, 3vw, 18px) clamp(15px, 4vw, 25px);
+            text-align: center;
+            border: none;
+            background: none;
+            color: var(--durga-ivory);
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .nav-tab.active {
+            background: linear-gradient(135deg, var(--durga-gold), var(--durga-yellow));
+            color: var(--text-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(247, 147, 30, 0.4);
+        }
+
+        .nav-tab:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-1px);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        /* Search Section */
+        .search-section {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border: 3px solid var(--durga-gold);
+        }
+
+        .search-section h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--durga-maroon);
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .search-container {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .search-input {
+            flex: 1;
+            min-width: 200px;
+            padding: clamp(14px, 3vw, 18px) clamp(18px, 4vw, 25px);
+            border: 3px solid var(--durga-orange);
+            border-radius: 15px;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .search-input:focus {
+            border-color: var(--durga-red);
+            box-shadow: 0 0 0 3px rgba(220, 20, 60, 0.15);
+            background: white;
+        }
+
+        .search-btn, .location-btn {
+            padding: clamp(14px, 3vw, 18px) clamp(20px, 4vw, 30px);
+            border: none;
+            border-radius: 15px;
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Poppins', sans-serif;
+            white-space: nowrap;
+        }
+
+        .search-btn {
+            background: linear-gradient(135deg, var(--durga-red), var(--durga-deep-red));
+            color: white;
+            box-shadow: 0 6px 20px rgba(220, 20, 60, 0.3);
+        }
+
+        .location-btn {
+            background: linear-gradient(135deg, var(--durga-saffron), var(--durga-orange));
+            color: white;
+            box-shadow: 0 6px 20px rgba(255, 153, 51, 0.3);
+        }
+
+        .search-btn:hover, .location-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .filters {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: clamp(10px, 2.5vw, 12px) clamp(15px, 3vw, 20px);
+            border: 2px solid var(--durga-red);
+            background: white;
+            color: var(--durga-red);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--durga-red), var(--durga-maroon));
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(220, 20, 60, 0.3);
+        }
+
+        .filter-btn:hover:not(.active) {
+            background: var(--durga-cream);
+            transform: translateY(-1px);
+        }
+
+        /* Pandal Grid */
+        .pandal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 350px), 1fr));
+            gap: clamp(1.5rem, 4vw, 2.5rem);
+            margin-top: 1.5rem;
+        }
+
+        .pandal-card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: clamp(1.5rem, 4vw, 2rem);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+            transition: all 0.4s ease;
+            border-left: 5px solid var(--durga-gold);
+            border-top: 2px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pandal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--durga-gold), var(--durga-yellow));
+            border-radius: 0 0 0 100%;
+            opacity: 0.1;
+        }
+
+        .pandal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+            border-left-color: var(--durga-red);
+        }
+
+        .pandal-name {
+            font-size: clamp(1.2rem, 3vw, 1.4rem);
+            font-weight: 700;
+            color: var(--durga-maroon);
+            margin-bottom: 0.6rem;
+            font-family: 'Cinzel', serif;
+            line-height: 1.3;
+        }
+
+        .pandal-zone {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--durga-saffron), var(--durga-orange));
+            color: white;
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            box-shadow: 0 3px 10px rgba(255, 107, 53, 0.3);
+        }
+
+        .pandal-distance {
+            color: var(--text-light);
+            font-size: clamp(0.9rem, 2.2vw, 1rem);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 1.2rem;
+            font-weight: 500;
+        }
+
+        .pandal-distance i {
+            color: var(--durga-red);
+        }
+
+        .pandal-actions {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: clamp(10px, 2.5vw, 12px) clamp(16px, 3vw, 20px);
+            border: none;
+            border-radius: 12px;
+            font-size: clamp(0.9rem, 2.2vw, 1rem);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .directions-btn {
+            background: linear-gradient(135deg, #28A745, #20C997);
+            color: white;
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+        }
+
+        .share-btn {
+            background: linear-gradient(135deg, #007BFF, #0056B3);
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Help Section */
+        .help-section {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border: 3px solid var(--durga-gold);
+        }
+
+        .help-section h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--durga-maroon);
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            font-weight: 700;
+        }
+
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+            gap: clamp(1.5rem, 3vw, 2rem);
+            margin-top: 1.5rem;
+        }
+
+        .help-card {
+            background: linear-gradient(135deg, var(--durga-red), var(--durga-deep-red));
+            color: white;
+            padding: clamp(1.5rem, 4vw, 2rem);
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .help-card:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(220, 20, 60, 0.4);
+        }
+
+        .help-card h3 {
+            font-size: clamp(1.1rem, 2.8vw, 1.3rem);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .help-card i {
+            color: var(--durga-gold);
+            font-size: clamp(1.3rem, 3vw, 1.5rem);
+        }
+
+        .help-number {
+            font-size: clamp(1.5rem, 4vw, 1.8rem);
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            color: var(--durga-gold);
+            font-family: 'Kalam', cursive;
+        }
+
+        .help-card p {
+            font-size: clamp(0.9rem, 2.2vw, 1rem);
+            opacity: 0.9;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        /* Status Messages */
+        .status-message {
+            text-align: center;
+            padding: clamp(2rem, 5vw, 2.5rem);
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            color: var(--text-light);
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            border: 2px solid var(--durga-gold);
+        }
+
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .spinner {
+            width: 35px;
+            height: 35px;
+            border: 3px solid rgba(220, 20, 60, 0.2);
+            border-top: 3px solid var(--durga-red);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Enhanced Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.8rem;
+            }
+
+            .search-container {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .location-info span {
+                max-width: 200px;
+            }
+
+            .nav-tab i {
+                display: none;
+            }
+
+            .pandal-actions {
+                flex-direction: column;
+            }
+
+            .action-btn {
+                min-width: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .logo {
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+            }
+
+            .filters {
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                font-size: 0.8rem;
+                padding: 8px 12px;
+            }
+
+            .pandal-grid {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .search-section, .help-section {
+                border-radius: 15px;
+            }
+
+            .pandal-card {
+                border-radius: 15px;
+            }
+
+            .help-card h3 {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+
+        /* High DPI / Retina Display Optimization */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .logo i {
+                filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+            }
+        }
+
+        /* Landscape Mobile Orientation */
+        @media screen and (max-height: 500px) and (orientation: landscape) {
+            header {
+                padding: 0.8rem 0;
+                margin-bottom: 1rem;
+            }
+            
+            .search-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-om"></i>
+                    Durga Puja Pandal Finder
+                </div>
+                <div class="location-info" id="locationInfo">
+                    <i class="fas fa-location-dot"></i>
+                    <span>Detecting location...</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="switchTab('pandals')">
+                <i class="fas fa-search"></i> <span>Find Pandals</span>
+            </button>
+            <button class="nav-tab" onclick="switchTab('help')">
+                <i class="fas fa-phone"></i> <span>Emergency Help</span>
+            </button>
+        </div>
+
+        <!-- Pandals Tab -->
+        <div id="pandals-tab" class="tab-content active">
+            <!-- Search Section -->
+            <div class="search-section">
+                <h2>
+                    <i class="fas fa-search"></i> Discover Sacred Durga Puja Pandals
+                </h2>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search by pandal name, location, or area...">
+                    <button class="search-btn" onclick="searchPandals()">
+                        <i class="fas fa-search"></i> <span>Search</span>
+                    </button>
+                    <button class="location-btn" onclick="findNearbyPandals()">
+                        <i class="fas fa-location-crosshairs"></i> <span>Near Me</span>
+                    </button>
+                </div>
+
+                <div class="filters">
+                    <button class="filter-btn active" data-zone="all">All Zones</button>
+                    <button class="filter-btn" data-zone="north">North Kolkata</button>
+                    <button class="filter-btn" data-zone="south">South Kolkata</button>
+                    <button class="filter-btn" data-zone="east">East Kolkata</button>
+                    <button class="filter-btn" data-zone="central">Central Kolkata</button>
+                    <button class="filter-btn" data-zone="west">West Kolkata</button>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div id="resultsSection">
+                <div class="status-message">
+                    <i class="fas fa-info-circle" style="color: var(--durga-gold); margin-right: 10px;"></i>
+                    Use the search bar above or click "Near Me" to find pandals around you
+                </div>
+            </div>
+        </div>
+
+        <!-- Help Tab -->
+        <div id="help-tab" class="tab-content">
+            <div class="help-section">
+                <h2 style="margin-bottom: 1rem; text-align: center;">
+                    <i class="fas fa-phone"></i> Emergency & Help Numbers
+                </h2>
+                <p style="text-align: center; color: var(--text-light); margin-bottom: 2rem; font-size: clamp(1rem, 2.5vw, 1.1rem);">
+                    Keep these important numbers handy during Durga Puja festivities
+                </p>
+
+                <div class="help-grid">
+                    <div class="help-card" onclick="callNumber('100')">
+                        <h3><i class="fas fa-shield-alt"></i> <span>Police Emergency</span></h3>
+                        <div class="help-number">100</div>
+                        <p>For any emergency or security concerns</p>
+                    </div>
+
+                    <div class="help-card" onclick="callNumber('108')">
+                        <h3><i class="fas fa-ambulance"></i> <span>Medical Emergency</span></h3>
+                        <div class="help-number">108</div>
+                        <p>Ambulance and medical emergencies</p>
+                    </div>
+
+                    <div class="help-card" onclick="callNumber('101')">
+                        <h3><i class="fas fa-fire"></i> <span>Fire Department</span></h3>
+                        <div class="help-number">101</div>
+                        <p>Fire emergencies and rescue services</p>
+                    </div>
+
+                    <div class="help-card" onclick="callNumber('1073')">
+                        <h3><i class="fas fa-car"></i> <span>Traffic Control</span></h3>
+                        <div class="help-number">1073</div>
+                        <p>Traffic-related issues and complaints</p>
+                    </div>
+
+                    <div class="help-card" onclick="callNumber('033-2214-5000')">
+                        <h3><i class="fas fa-users"></i> <span>Kolkata Police Control</span></h3>
+                        <div class="help-number">033-2214-5000</div>
+                        <p>Kolkata Police headquarters</p>
+                    </div>
+
+                    <div class="help-card" onclick="callNumber('1800-345-3343')">
+                        <h3><i class="fas fa-building"></i> <span>KMC Helpline</span></h3>
+                        <div class="help-number">1800-345-3343</div>
+                        <p>Kolkata Municipal Corporation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simplified Pandal data with just names and zones for easy Google Maps search
+        const pandals = [
+            // North Kolkata
+            { name: "Bagbazar Sarbojanin", zone: "north", description: "Traditional heritage pandal near Bagbazar Launch Ghat", area: "Bagbazar, North Kolkata" },
+            { name: "Kumartuli Park Sarbojanin", zone: "north", description: "Famous artisan community pandal in Hatkhola", area: "Kumartuli, North Kolkata" },
+            { name: "College Square", zone: "north", description: "Historic educational hub celebration", area: "College Square, North Kolkata" },
+            { name: "Hatibagan Sarbojanin", zone: "north", description: "Traditional neighborhood celebration since 1934", area: "Hatibagan, North Kolkata" },
+            { name: "Ahiritola Sarbojanin", zone: "north", description: "Heritage-rich riverside pandal", area: "Ahiritola, North Kolkata" },
+            { name: "Sovabazar Rajbari", zone: "north", description: "Royal heritage pandal with 200+ years history", area: "Sovabazar, North Kolkata" },
+            { name: "Pathuriaghata Street", zone: "north", description: "Historic bonedi bari puja", area: "Pathuriaghata, North Kolkata" },
+            { name: "Tala Barowari", zone: "north", description: "Community festival in Tala", area: "Tala, North Kolkata" },
+            { name: "Santosh Mitra Square", zone: "north", description: "Near Sealdah station, popular pandal", area: "Santosh Mitra Square, Sealdah" },
+            { name: "Maniktala Chaltabagan", zone: "north", description: "Local community puja", area: "Maniktala, North Kolkata" },
+
+            // South Kolkata  
+            { name: "Ekdalia Evergreen Club", zone: "south", description: "Famous for temple replicas and big-budget themes", area: "Ekdalia Road, Ballygunge" },
+            { name: "Deshapriya Park", zone: "south", description: "Innovative themes and star attractions", area: "Deshapriya Park, Rashbehari" },
+            { name: "Tridhara Sammilani", zone: "south", description: "Glamorous celebration with celebrity visits", area: "Tridhara, Ballygunge" },
+            { name: "Chetla Agrani Club", zone: "south", description: "Creative artistic themes", area: "Chetla, South Kolkata" },
+            { name: "Ballygunge Cultural Association", zone: "south", description: "Cultural hub with traditional celebrations", area: "Ballygunge, South Kolkata" },
+            { name: "Jodhpur Park", zone: "south", description: "Popular residential area pandal", area: "Jodhpur Park, South Kolkata" },
+            { name: "Badamtala Ashar Sangha", zone: "south", description: "Community celebration in Kalighat area", area: "Badamtala, Kalighat" },
+            { name: "Suruchi Sangha", zone: "south", description: "Artistic and cultural pandal", area: "New Alipore, South Kolkata" },
+            { name: "75 Palli Bhowanipore", zone: "south", description: "Historic neighborhood puja", area: "75 Palli, Bhowanipore" },
+            { name: "Singhi Park", zone: "south", description: "Park-based family celebration", area: "Singhi Park, South Kolkata" },
+            { name: "Mudiali Club", zone: "south", description: "Club-based community puja", area: "Mudiali, South Kolkata" },
+            { name: "95 Palli", zone: "south", description: "Popular Ballygunge area pandal", area: "95 Palli, Ballygunge" },
+
+            // East Kolkata
+            { name: "Sreebhumi Sporting Club", zone: "east", description: "Lake Town's most iconic grand themed pandal", area: "Lake Town, Block A" },
+            { name: "Lake Town Adhibasi Brinda", zone: "east", description: "Lake Town community celebration", area: "Lake Town, East Kolkata" },
+            { name: "Dum Dum Park Tarun Sangha", zone: "east", description: "Youth organization puja", area: "Dum Dum Park, East Kolkata" },
+            { name: "Dum Dum Park Bharat Chakra", zone: "east", description: "Community celebration", area: "Dum Dum Park, East Kolkata" },
+            { name: "Telengabagan Sarbojanin", zone: "east", description: "Impactful cultural themes", area: "Telengabagan, East Kolkata" },
+            { name: "Kankurgachi Yubak Brinda", zone: "east", description: "Youth group puja", area: "Kankurgachi, East Kolkata" },
+            { name: "Ultadanga Pally Puja", zone: "east", description: "Neighborhood celebration", area: "Ultadanga, East Kolkata" },
+            { name: "Salt Lake FD Block Puja", zone: "east", description: "Salt Lake sector celebration", area: "Salt Lake FD Block" },
+            { name: "Salt Lake BJ Block Puja", zone: "east", description: "Salt Lake sector", area: "Salt Lake BJ Block" },
+            { name: "Salt Lake AE Block Puja", zone: "east", description: "Salt Lake sector", area: "Salt Lake AE Block" },
+            { name: "New Town AA Block Puja", zone: "east", description: "New Town sector", area: "New Town AA Block" },
+            { name: "New Town CE Block Puja", zone: "east", description: "New Town sector", area: "New Town CE Block" },
+
+            // Central Kolkata
+            { name: "Mohammad Ali Park", zone: "central", description: "Central Kolkata landmark", area: "Mohammad Ali Park, Central Kolkata" },
+            { name: "Kashi Bose Lane", zone: "central", description: "Historic central area", area: "Kashi Bose Lane, Central Kolkata" },
+            { name: "Chaltabagan Durga Puja", zone: "central", description: "Traditional central puja", area: "Chaltabagan, Central Kolkata" },
+            { name: "Taltala Ground Pally Mangal Samity", zone: "central", description: "Ground-based celebration", area: "Taltala, Central Kolkata" },
+
+            // West Kolkata
+            { name: "Howrah Kadamtala Puja", zone: "west", description: "Howrah side celebration", area: "Kadamtala, Howrah" },
+            { name: "Salkia Bantra Puja", zone: "west", description: "Local community puja", area: "Salkia, Howrah" },
+            { name: "Shibpur Sarbojanin Puja", zone: "west", description: "Community celebration", area: "Shibpur, Howrah" },
+            { name: "Ramrajatala Puja", zone: "west", description: "Very old heritage puja", area: "Ramrajatala, Howrah" },
+            { name: "Santragachi Puja", zone: "west", description: "Local celebration", area: "Santragachi, Howrah" },
+            { name: "Belur Math Puja", zone: "west", description: "Spiritual celebration at iconic location", area: "Belur Math, Howrah" }
+        ];
+
+        let userLocation = null;
+        let filteredPandals = pandals;
+
+        // Enhanced location detection with better error handling
+        function getUserLocation() {
+            const locationInfo = document.getElementById('locationInfo');
+            
+            if (navigator.geolocation) {
+                locationInfo.innerHTML = `
+                    <i class="fas fa-location-dot"></i>
+                    <span>Detecting your location...</span>
+                `;
+
+                const options = {
+                    enableHighAccuracy: true,
+                    timeout: 15000,
+                    maximumAge: 300000 // 5 minutes cache
+                };
+
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        userLocation = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+                        
+                        // Check if user is in Kolkata area (expanded bounds)
+                        if (position.coords.latitude >= 22.3 && position.coords.latitude <= 22.8 && 
+                            position.coords.longitude >= 88.1 && position.coords.longitude <= 88.6) {
+                            updateLocationInfo("Kolkata, West Bengal");
+                        } else if (position.coords.latitude >= 22.0 && position.coords.latitude <= 23.0 && 
+                                   position.coords.longitude >= 87.5 && position.coords.longitude <= 89.0) {
+                            updateLocationInfo("West Bengal, India");
+                        } else {
+                            updateLocationInfo("Location detected (outside Kolkata)");
+                        }
+                    },
+                    (error) => {
+                        console.error("Location error:", error);
+                        // Default to Kolkata center coordinates
+                        userLocation = { lat: 22.5726, lng: 88.3639 };
+                        
+                        switch(error.code) {
+                            case error.PERMISSION_DENIED:
+                                updateLocationInfo("Kolkata, WB (Enable location for better results)");
+                                break;
+                            case error.POSITION_UNAVAILABLE:
+                                updateLocationInfo("Kolkata, WB (Location service unavailable)");
+                                break;
+                            case error.TIMEOUT:
+                                updateLocationInfo("Kolkata, WB (Location request timed out)");
+                                break;
+                            default:
+                                updateLocationInfo("Kolkata, West Bengal (Default location)");
+                                break;
+                        }
+                    },
+                    options
+                );
+            } else {
+                // Geolocation not supported - default to Kolkata
+                userLocation = { lat: 22.5726, lng: 88.3639 };
+                updateLocationInfo("Kolkata, West Bengal (Geolocation not supported)");
+            }
+        }
+
+        function updateLocationInfo(text) {
+            document.getElementById('locationInfo').innerHTML = `
+                <i class="fas fa-location-dot"></i>
+                <span>${text}</span>
+            `;
+        }
+
+        // Calculate distance between two coordinates (simplified for nearby detection)
+        function calculateDistance(lat1, lng1, lat2, lng2) {
+            const R = 6371; // Earth's radius in kilometers
+            const dLat = (lat2 - lat1) * Math.PI / 180;
+            const dLng = (lng2 - lng1) * Math.PI / 180;
+            const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                     Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                     Math.sin(dLng/2) * Math.sin(dLng/2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+            return R * c;
+        }
+
+        // Simplified directions function using pandal name search
+        function getDirections(pandalName) {
+            const pandal = pandals.find(p => p.name === pandalName);
+            
+            if (!pandal) {
+                alert('Pandal information not found!');
+                return;
+            }
+
+            // Create search query for Google Maps
+            const searchQuery = encodeURIComponent(`${pandalName} Durga Puja ${pandal.area} Kolkata`);
+            
+            // Detect if user is on mobile device
+            const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                // For mobile devices, try to open Google Maps app first
+                const appUrl = `google.navigation:q=${searchQuery}`;
+                const webUrl = `https://maps.google.com/maps?q=${searchQuery}`;
+                
+                // Try app first, fallback to web
+                window.location.href = appUrl;
+                
+                // Fallback to web version after a short delay
+                setTimeout(() => {
+                    window.open(webUrl, '_blank');
+                }, 1500);
+            } else {
+                // For desktop, open directly in Google Maps web
+                const mapsUrl = `https://maps.google.com/maps?q=${searchQuery}`;
+                window.open(mapsUrl, '_blank');
+            }
+        }
+
+        // Tab switching function
+        function switchTab(tabName) {
+            // Update tab buttons
+            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.closest('.nav-tab').classList.add('active');
+
+            // Update tab content
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(tabName + '-tab').classList.add('active');
+        }
+
+        // Enhanced search functionality
+        function searchPandals() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+            
+            if (!searchTerm) {
+                showAllPandals();
+                return;
+            }
+
+            const results = pandals.filter(pandal => 
+                pandal.name.toLowerCase().includes(searchTerm) ||
+                pandal.zone.toLowerCase().includes(searchTerm) ||
+                pandal.description.toLowerCase().includes(searchTerm) ||
+                pandal.area.toLowerCase().includes(searchTerm)
+            );
+
+            displayPandals(results, `Search results for "${searchTerm}"`);
+        }
+
+        // Enhanced nearby pandals function
+        function findNearbyPandals() {
+            showLoading();
+            
+            // Simulate finding nearby pandals based on different zones
+            setTimeout(() => {
+                let nearbyPandals;
+                
+                if (userLocation) {
+                    // If we have user location, show a mix from different zones
+                    nearbyPandals = [
+                        ...pandals.filter(p => p.zone === 'central').slice(0, 2),
+                        ...pandals.filter(p => p.zone === 'north').slice(0, 2),
+                        ...pandals.filter(p => p.zone === 'south').slice(0, 2),
+                        ...pandals.filter(p => p.zone === 'east').slice(0, 2),
+                    ].sort(() => Math.random() - 0.5).slice(0, 8);
+                } else {
+                    // Fallback: show popular pandals from all zones
+                    nearbyPandals = [...pandals].sort(() => Math.random() - 0.5).slice(0, 8);
+                }
+                
+                displayPandals(nearbyPandals, "Nearby Pandals", true);
+            }, 1500);
+        }
+
+        // Filter by zone
+        function filterByZone(zone) {
+            const results = zone === 'all' ? pandals : pandals.filter(pandal => pandal.zone === zone);
+            const zoneName = zone === 'all' ? 'All Zones' : 
+                            `${zone.charAt(0).toUpperCase() + zone.slice(1)} Kolkata`;
+            displayPandals(results, zoneName);
+        }
+
+        // Enhanced display pandals function
+        function displayPandals(pandalList, title, showDistance = false) {
+            const resultsSection = document.getElementById('resultsSection');
+            
+            if (pandalList.length === 0) {
+                resultsSection.innerHTML = `
+                    <div class="status-message">
+                        <i class="fas fa-search" style="color: var(--durga-gold); margin-right: 10px;"></i>
+                        No pandals found matching your search criteria
+                    </div>
+                `;
+                return;
+            }
+
+            let html = `
+                <h3 style="color: var(--durga-ivory); margin-bottom: 1.5rem; text-align: center; background: rgba(255,255,255,0.15); padding: clamp(1rem, 3vw, 1.5rem); border-radius: 15px; backdrop-filter: blur(15px); font-family: 'Cinzel', serif; font-size: clamp(1.2rem, 3vw, 1.4rem); border: 2px solid rgba(255,215,0,0.3);">
+                    ${title} (${pandalList.length} found)
+                </h3>
+                <div class="pandal-grid">
+            `;
+
+            pandalList.forEach(pandal => {
+                let distanceText = '';
+                if (showDistance) {
+                    // Simulate distances for nearby pandals
+                    distanceText = `${(Math.random() * 8 + 0.5).toFixed(1)} km away`;
+                }
+                
+                html += `
+                    <div class="pandal-card">
+                        <div class="pandal-name">${pandal.name}</div>
+                        <div class="pandal-zone">${pandal.zone.charAt(0).toUpperCase() + pandal.zone.slice(1)} Kolkata</div>
+                        <p style="color: var(--text-light); margin-bottom: 1rem; font-size: clamp(0.9rem, 2.2vw, 1rem); line-height: 1.5;">${pandal.description}</p>
+                        ${pandal.area ? `<p style="color: var(--text-light); margin-bottom: 1rem; font-size: clamp(0.85rem, 2vw, 0.95rem); opacity: 0.8;"><i class="fas fa-map-marker-alt" style="color: var(--durga-orange); margin-right: 5px;"></i>${pandal.area}</p>` : ''}
+                        ${distanceText ? `<div class="pandal-distance"><i class="fas fa-location-dot"></i> ${distanceText}</div>` : ''}
+                        <div class="pandal-actions">
+                            <button class="action-btn directions-btn" onclick="getDirections('${pandal.name}')">
+                                <i class="fas fa-directions"></i> <span>Directions</span>
+                            </button>
+                            <button class="action-btn share-btn" onclick="sharePandal('${pandal.name}')">
+                                <i class="fas fa-share"></i> <span>Share</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += '</div>';
+            resultsSection.innerHTML = html;
+        }
+
+        // Show all pandals
+        function showAllPandals() {
+            displayPandals(pandals, "All Durga Puja Pandals in Kolkata");
+        }
+
+        // Loading function
+        function showLoading() {
+            document.getElementById('resultsSection').innerHTML = `
+                <div class="status-message loading">
+                    <div class="spinner"></div>
+                    <span style="font-size: clamp(1rem, 2.5vw, 1.1rem); color: var(--durga-maroon); font-weight: 500;">Finding nearby pandals...</span>
+                </div>
+            `;
+        }
+
+        // Enhanced share pandal function
+        function sharePandal(pandalName) {
+            const pandal = pandals.find(p => p.name === pandalName);
+            const searchQuery = encodeURIComponent(`${pandalName} Durga Puja ${pandal.area} Kolkata`);
+            const mapsUrl = `https://maps.google.com/maps?q=${searchQuery}`;
+            
+            const shareData = {
+                title: `${pandalName} - Durga Puja Pandal`,
+                text: `Visit ${pandalName} for Durga Puja celebrations!\n\n${pandal.description}\n\nLocation: ${pandal.area}`,
+                url: mapsUrl
+            };
+
+            if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+                navigator.share(shareData).catch(err => {
+                    console.log('Error sharing:', err);
+                    fallbackShare(shareData);
+                });
+            } else {
+                fallbackShare(shareData);
+            }
+        }
+
+        // Fallback share function
+        function fallbackShare(shareData) {
+            const text = `${shareData.text}\n\nFind directions: ${shareData.url}`;
+            
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showShareMessage('Pandal details copied to clipboard!');
+                }).catch(() => {
+                    promptShare(text);
+                });
+            } else {
+                promptShare(text);
+            }
+        }
+
+        function promptShare(text) {
+            const userAgent = navigator.userAgent.toLowerCase();
+            if (userAgent.indexOf('mobile') > -1 || userAgent.indexOf('android') > -1 || userAgent.indexOf('iphone') > -1) {
+                // Mobile device - show a modal or alert
+                alert('Copy this text to share:\n\n' + text);
+            } else {
+                // Desktop - use prompt
+                prompt('Copy this text to share:', text);
+            }
+        }
+
+        function showShareMessage(message) {
+            // Create a temporary message element
+            const messageEl = document.createElement('div');
+            messageEl.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, var(--durga-green), var(--durga-teal));
+                color: white;
+                padding: 15px 20px;
+                border-radius: 10px;
+                z-index: 1000;
+                font-family: 'Poppins', sans-serif;
+                font-weight: 500;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                animation: slideIn 0.3s ease;
+            `;
+            messageEl.textContent = message;
+            document.body.appendChild(messageEl);
+            
+            setTimeout(() => {
+                messageEl.remove();
+            }, 3000);
+        }
+
+        // Call function for help numbers
+        function callNumber(number) {
+            if (confirm(`Do you want to call ${number}?`)) {
+                window.location.href = `tel:${number}`;
+            }
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get user location on load
+            getUserLocation();
+
+            // Search on Enter key
+            document.getElementById('searchInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchPandals();
+                }
+            });
+
+            // Filter button event listeners
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Update active filter
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter pandals
+                    const zone = this.getAttribute('data-zone');
+                    filterByZone(zone);
+                });
+            });
+
+            // Show all pandals initially
+            showAllPandals();
+
+            // Real-time search as user types (with debouncing)
+            let searchTimeout;
+            document.getElementById('searchInput').addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase().trim();
+                
+                clearTimeout(searchTimeout);
+                
+                if (searchTerm === '') {
+                    showAllPandals();
+                    return;
+                }
+
+                if (searchTerm.length >= 2) {
+                    searchTimeout = setTimeout(() => {
+                        const results = pandals.filter(pandal => 
+                            pandal.name.toLowerCase().includes(searchTerm) ||
+                            pandal.zone.toLowerCase().includes(searchTerm) ||
+                            pandal.description.toLowerCase().includes(searchTerm) ||
+                            pandal.area.toLowerCase().includes(searchTerm)
+                        );
+                        displayPandals(results, `Search results for "${searchTerm}"`);
+                    }, 300);
+                }
+            });
+
+            // Add keyboard navigation support
+            document.addEventListener('keydown', function(e) {
+                if (e.key === '/' && e.target.tagName !== 'INPUT') {
+                    e.preventDefault();
+                    document.getElementById('searchInput').focus();
+                }
+            });
+        });
+
+        // Add CSS animation for share message
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
